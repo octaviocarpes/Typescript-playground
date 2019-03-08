@@ -4,25 +4,27 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:dev": "concurrently --kill-others \" eslint ./src/index.ts \" \"tsc\" \"nodemon ./dist/index.js\""
+    "start:dev": "concurrently --kill-others \" eslint ./src/index.ts \" \"tsc\" \"nodemon ./dist/index.js\"",
+    "build": "tsc && npm run lint",
+    "clean": "rimraf ./dist",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "tsc": "tsc",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts"
   },
   "dependencies": {
     "@types/bluebird": "^3.5.26",
     "@types/node": "^11.10.5",
-    "@typescript-eslint/eslint-plugin": "^1.4.2",
-    "@typescript-eslint/parser": "^1.4.2",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
-    "eslint": "^5.15.1",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "esm": "^3.2.13",
     "express": "^4.16.4",
     "knex": "^0.16.3",
     "lodash": "^4.17.11",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4",
-    "typescript": "^3.3.3333"
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.13.1",
+    "typescript": "^3.3.3333",
+    "typescript-eslint-parser": "^22.0.0"
   }
 }

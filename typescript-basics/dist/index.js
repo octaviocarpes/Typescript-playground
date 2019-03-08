@@ -1,11 +1,12 @@
 "use strict";
-var bodyParser = require('body-parser');
-var express = require('express');
-var app = express();
+const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
 app.use(bodyParser);
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.send('Hello World!');
 });
-app.listen(8080, function () {
+app.listen(8080, () => {
+    /*eslint no-console: "error"*/
     console.log('TS POC listening on port 8080!');
 });
